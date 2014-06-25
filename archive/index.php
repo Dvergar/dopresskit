@@ -204,11 +204,11 @@ echo '<!DOCTYPE html>
 						<li><a href="#factsheet">Factsheet</a></li>
 						<li><a href="#description">Description</a></li>
 						<li><a href="#history">History</a></li>
-						<li><a href="#projects">Projects</a></li>
-						<li><a href="#trailers">Videos</a></li>
-						<li><a href="#images">Images</a></li>
+						<li><a href="#projects">Projects</a></li>';
+						if( count($trailers) > 0 ) echo '<li><a href="#trailers">Videos</a></li>';
+						echo '<li><a href="#images">Images</a></li>
 						<li><a href="#logo">Logo & Icon</a></li>';
-						if( count($awards) > 0 ) echo'<li><a href="#awards">Awards & Recognition</a></li>';
+						if( count($awards) > 0 ) echo '<li><a href="#awards">Awards & Recognition</a></li>';
 						if( count($quotes) > 0 ) echo '<li><a href="#quotes">Selected Articles</a></li>';
 
 if( count($additionals) > 0 ) {
@@ -323,18 +323,12 @@ closedir($handle);
 
 echo '							</ul>
 						</div>
-					</div>
+					</div>';
 
-					<hr>
-
-					<h2 id="trailers">Videos</h2>';
-
-if( count($trailers) == 0 )
+if( count($trailers) > 0 )
 {
-	echo '<p>There are currently no trailers available for '.COMPANY_TITLE.'. Check back later for more or <a href="#contact">contact us</a> for specific requests!</p>';
-}
-else
-{
+	echo '<hr><h2 id="trailers">Videos</h2>';
+
 	for( $i = 0; $i < count($trailers); $i++ )
 	{
 		$name = $youtube = $vimeo = $mov = $mp4 = "";
